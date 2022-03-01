@@ -19,6 +19,8 @@ var jokeRouter = require("./router/joke.route") // Use router joke
 app.set('view engine', 'pug')
 app.set('views', "./views")
 
+app.use(express.static('public')); //use static file
+
 app.use("/", jokeRouter)
 
 app.listen(port,() =>{
