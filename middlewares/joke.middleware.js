@@ -20,11 +20,22 @@ module.exports.checkCookie = function(req, res, next){
     }
     else if(req.cookies.Track == "Like"){ // if user vote this is funny
         jokeModel[indexJoke(jokeModel)].vote = req.cookies.Track // change vote with each element in array
-        console.log(jokeModel) // can check data change in CLI 
+        console.log(jokeModel) // can check data change in CLI
+        
+        if(indexJoke(jokeModel) == null) //check if all field vote is not null, change content
+            res.render("index", {  // render page index
+                contentJoke:"That's all the jokes for today! Come back another day!"
+            })
+
     }
     else if(req.cookies.Track == "Dislike"){ // if user vote this is not funny
         jokeModel[indexJoke(jokeModel)].vote = req.cookies.Track 
         console.log(jokeModel)
+
+        if(indexJoke(jokeModel) == null)
+            res.render("index", {  // render page index
+                contentJoke:"That's all the jokes for today! Come back another day!"
+            })
     }
     else if(!req.cookies.Track){ // if browser doesn't have track cookie, dtb will change vote to null
         jokeModel.forEach(function(e){ // use loop
