@@ -1,0 +1,78 @@
+#body
+  #header
+    div(style='color: #adadad') Build by 
+    div Luan
+  #banner
+    div
+      h1(style='font-size:45px') A Joke a day keeps the doctor away
+      h4 if you joke wrong way, your teeth have to pay. (Serious)
+  div
+    #content
+      p#par
+        |#{contentJoke}
+        hr#hr
+
+    form
+        input#like(type='submit', name='like', value='This is Funny!', onclick="sendCookieLike()")
+        input#dislike(type='submit', name='dislike', value='This is not funny.', onclick="sendCookieDislike()")
+    hr(style='margin-top: 8%')
+  div
+    p(style='text-align:center')
+      | This website created by Luan, use for test by HLS 
+      br
+    p(style='text-align:center; color: #484848')
+      | 2022
+
+script.
+  function sendCookieLike(){
+    document.cookie = "Track=Like"
+  }
+  function sendCookieDislike(){
+    document.cookie = "Track=Dislike"
+  }
+
+
+style.
+  #body {
+  font-family: calibri;
+  }
+  #header {
+  text-align: right;
+  margin-bottom: 2%
+  }
+  #banner {
+  text-align: center;
+  background-color: #29b363;
+  color: white;
+  padding: 50px;
+  }
+  #content {
+  margin: 2% 20% 0px 20%
+  }
+  #par {
+  font-size: 23px;
+  color: #6e6e6e
+  }
+  #hr {
+  margin: 8% 5% 8% 5%;
+  background-color: #ccc;
+  }
+  #like {
+      margin-left:30%;
+      background-color: #2c7edb;
+      color: white;
+      font-family: calibri;
+      width: 20%;
+      height: 4%;
+      font-size:130%;
+  }
+  #dislike{
+      margin-left: 5%;
+      background-color: #29b363;
+      color:white;
+      font-family: calibri;
+      width: 20%;
+      height: 4%;
+      font-size:130%;
+  }
+
